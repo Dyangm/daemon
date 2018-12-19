@@ -1,6 +1,38 @@
 # daemon
 后台守护进程
 
-## Daemon()
+## 运用
 
-直接调用 然后编译后 可自行文件main， 直接部署./main -d
+``` 
+--- main.go
+package main
+
+import (
+	"fmt"
+	"github.com/Dyangm/daemon"
+	"time"
+)
+
+func main() {
+	daemon.Daemon()
+	for {
+		time.Sleep(1 * time.Minute)
+		fmt.Println("hello world")
+	}
+}
+
+```
+
+执行
+$go build main.go
+```$xslt
+
+main
+```
+
+部署
+```
+./main -d
+
+```
+
